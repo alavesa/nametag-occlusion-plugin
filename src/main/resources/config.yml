@@ -1,0 +1,40 @@
+# NametagOcclusion - /nametagocclusion reload applies changes without a restart.
+
+# How often line of sight is re-checked, in ticks (20 ticks = 1 second). 2-4 is a good range.
+update-interval-ticks: 3
+
+# Pairs further apart than this (in blocks) are not ray-traced and keep their vanilla nametag.
+# Vanilla draws nametags up to 64 blocks away, so a lower value lets far tags show through walls again.
+max-distance: 64
+
+# A line-of-sight result must hold for this many ticks before a tag is hidden or shown again.
+# Stops flicker when the ray grazes a block edge. 0 = react on the next check.
+grace-period-ticks: 6
+
+# Blocks that never hide a tag. Entries are material names, globs with *, or block tags with #.
+transparent-materials:
+  - GLASS
+  - TINTED_GLASS
+  - "*_STAINED_GLASS"
+  - GLASS_PANE
+  - "*_STAINED_GLASS_PANE"
+  - "#minecraft:leaves"
+  - "*BARS"
+  - BARRIER
+
+# Blocks without collision (grass, flowers, signs, open air under carpets...) never hide a tag.
+ignore-passable-blocks: true
+
+# true = water and lava hide tags like solid blocks.
+fluids-occlude: false
+
+# The tag is hidden only when BOTH the nametag position and the player's head are behind blocks.
+# Keeps tags visible in low corridors, where the tag itself floats inside the ceiling.
+# false = only the nametag position is checked.
+also-check-head: true
+
+# Height of the nametag position above the top of the player's hitbox, in blocks.
+tag-height-offset: 0.5
+
+# Worlds where tags are occluded. Empty list = every world.
+enabled-worlds: []

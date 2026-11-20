@@ -1,0 +1,19 @@
+name: NametagOcclusion
+version: '${version}'
+main: fi.alavesa.nametagocclusion.NametagOcclusionPlugin
+api-version: '26.3'
+description: Hides player nametags from viewers who have solid blocks between them and the player
+author: Piia Alavesa
+
+# /nametagocclusion is registered in code (JavaPlugin#registerCommand), not here.
+
+permissions:
+  nametagocclusion.bypass:
+    description: Viewers with this node always see nametags through blocks, as in vanilla
+    default: false
+  nametagocclusion.reload:
+    description: /nametagocclusion reload
+    default: op
+  nametagocclusion.toggle:
+    description: /nametagocclusion toggle (turn occlusion off or on for your own view)
+    default: op
